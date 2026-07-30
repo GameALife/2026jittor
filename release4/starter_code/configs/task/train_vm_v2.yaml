@@ -1,0 +1,24 @@
+mode: train
+debug: False
+
+components:
+  data: train
+  transform: vm
+  system: vm_v2
+  model: vm_v2
+
+# Board bottleneck is CD; repulse fights clustering that kills CD
+loss:
+  loss: 1.0
+  cd: 2.0
+  p2s: 0.3
+  repulse: 0.5
+
+optimizer:
+  __target__: adam
+  lr: 0.00005
+
+trainer:
+  epochs: 120
+  monitor: cd
+  early_stop: 12

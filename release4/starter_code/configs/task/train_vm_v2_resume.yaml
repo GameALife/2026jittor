@@ -1,0 +1,26 @@
+mode: train
+debug: False
+
+# Continue from last finished epoch weights (early-stopped around e35; best was e21)
+load_ckpt: experiments/vm_v2/checkpoint_35.pkl
+
+components:
+  data: train
+  transform: vm
+  system: vm_v2
+  model: vm_v2
+
+loss:
+  loss: 1.0
+  cd: 2.0
+  p2s: 0.3
+  repulse: 0.5
+
+optimizer:
+  __target__: adam
+  lr: 0.00003
+
+trainer:
+  epochs: 80
+  monitor: cd
+  early_stop: 15

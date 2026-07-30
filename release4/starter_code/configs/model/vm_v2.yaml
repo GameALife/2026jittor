@@ -1,0 +1,30 @@
+__target__: VelocityModule
+frame_knn: 16
+# MSE subset; geometric losses use num_cd_points (full patch by default)
+num_train_points: 512
+num_cd_points: 1000
+cd_unit_sphere: true          # match evaluate.py unit-sphere CD
+repulsion_k: 8
+repulsion_radius: 0.03        # hinge radius in unit-sphere coords
+feat_embedding_dim: 256
+decoder_hidden_dim: 64
+dsm_sigma: 0.01
+# residual + single-step infer is the train/infer contract
+target_mode: residual
+
+predict:
+  # Balance CD vs P2S: slightly stronger denoise than 0.65/0.6 (board P2S dropped)
+  outer_steps: 1
+  inner_steps: 1
+  patch_size: 1000
+  seed_k: 8
+  seed_k_alpha: 0.5
+  fusion: weighted
+  step_scale: 0.8
+  residual_split: false
+  seed_mode: fps_fast
+  fps_candidates: 8192
+  max_patch_batch: 24
+  blend_alpha: 0.85           # higher → more P2S; lower → more CD
+  tta_runs: 1
+  ensemble_ckpts: []

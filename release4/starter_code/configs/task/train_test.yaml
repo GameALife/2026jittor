@@ -1,0 +1,14 @@
+mode: train
+debug: false
+components:
+  data: train
+  transform: vm
+  system: vm
+  model: vm
+loss:
+  loss: 1.0
+optimizer:
+  __target__: adam
+  lr: 1.0e-05
+trainer:
+  epochs: 1

@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+dist/
+build/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Model weights / checkpoints
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.weights
+saved_models/
+**/experiments/
+**/results/
+
+# Datasets & arrays
+*.npy
+*.npz
+*.npz.npz
+*.csv
+data/
+**/dataset1/
+**/dataset2/
+**/dataset_test_noisy/
+**/dataset_train.tar.gz
+
+# Archives / submission packs
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Third-party clones (install separately)
+jittor/
+JittorGeometric/
+
+# Nested / backup git metadata
+**/.git/
+**/.git.__bak__/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+.refresh
